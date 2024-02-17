@@ -35,12 +35,6 @@ app.get("/livros", async (req, res) => {
     res.status(200).send(listaLivros);
 });
 
-const buscaLivros = (id) => {
-    return livros.findIndex(livro => {
-        return livro.id === Number(id);
-    })
-}
-
 app.get("/livros/:id", (req, res) => {
     const index = buscaLivros(req.params.id);
     res.status(200).send(livros[index]);
